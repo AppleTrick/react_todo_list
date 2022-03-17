@@ -1,7 +1,19 @@
+import { createGlobalStyle } from "styled-components";
+import TodoTemplate from "./TodoTemplate";
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background : royalblue;
+  }
+`;
+
 function App() {
   return (
-    <>
-      <h1>hello</h1>
+    <>  
+      <GlobalStyle/>
+      <TodoTemplate>
+        <h1>hello</h1>
+      </TodoTemplate>
     </>
   );
 }
