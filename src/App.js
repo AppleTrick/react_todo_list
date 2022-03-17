@@ -1,5 +1,8 @@
 import { createGlobalStyle } from "styled-components";
+
+// 템플릿들 추가
 import TodoTemplate from "./TodoTemplate";
+import TodoHeader from "./TodoHeader";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -12,7 +15,7 @@ function App() {
     <>  
       <GlobalStyle/>
       <TodoTemplate>
-        <h1>hello</h1>
+        <TodoHeader/>
       </TodoTemplate>
     </>
   );
