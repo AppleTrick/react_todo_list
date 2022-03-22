@@ -29,13 +29,25 @@ const TodoHeadBlock = styled.div`
 const TodoHeader = () => {
 
     const todos = useTodoState();
-    console.log(todos);
+    // console.log(todos);
+    
+    // 남은 할일 개수 표시하는법
+    const undoneTasks = todos.filter((todo) => !todo.done );
+
+    // 날짜 표시하는 법
+    const today = new Date();
+    const dateString = today.toLocaleDateString('ko-KR', {
+      year : 'numeric',
+      month : 'long',
+      day : 'numeric',
+    })
+    const dayName = today.toLocaleDateString('ko-KR',{weekday : 'long'});
 
     return (
         <TodoHeadBlock>
-            <h1>현재 시간</h1>
-            <div className="day">요일</div>
-            <div className="tasks-left">남은 할일</div>
+            <h1>{dateString}</h1>
+            <div className="day">{dayName}</div>
+            <div className="tasks-left">남은 할일 개수는 {undoneTasks.length} 개 입니다.</div>
         </TodoHeadBlock>
     )
 }
