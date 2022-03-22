@@ -23,11 +23,11 @@ const initialTodos = [
     }
 ]
 
-const todoReducer = ({state, action}) => {
+const todoReducer = (state,action) => {
     switch(action.type){
         case 'CREATE' :
             return state.concat(action.todo);
-        case 'TOOGLE' : 
+        case 'TOGGLE' : 
             return state.map((todo) => 
                 todo.id === action.id ? {...todo, done : !todo.done} : todo
             );
@@ -48,7 +48,7 @@ const TodoProvider = ({children}) => {
     return (
         <TodoStateContext.Provider value={state}>
             <TodoDispatchContext.Provider value={dispatch}>
-                <TodoNextIdContext.Provider value={{nextId}}>
+                <TodoNextIdContext.Provider value={nextId}>
                     {children}
                 </TodoNextIdContext.Provider>
             </TodoDispatchContext.Provider>
